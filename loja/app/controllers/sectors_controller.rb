@@ -1,8 +1,8 @@
-class ProductsController < ApplicationController
+class SectorsController < ApplicationController
   def index
-    @products = Product.all
+  	@sectors = Sector.all
   end
-
+  
   def show
   end
 

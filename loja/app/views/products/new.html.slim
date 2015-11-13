@@ -1,2 +1,7 @@
-h1 Products#new
-p Find me in app/views/products/new.html.slim
+h1 New Product
+
+= render 'form'
+br
+br
+.redirect_link
+	= link_to 'Back', products_path

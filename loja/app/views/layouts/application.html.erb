@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html ng-app='IlsApp'>
+  <head>
+    <title><%= @page_title || "Barney Shop" %></title>
+    <%= stylesheet_link_tag("application", :media => "all") %>
+    <%= javascript_include_tag("application") %>
+    <%= csrf_meta_tags %>
+  </head>
+
+	<body class="<%= controller.controller_name %>">
+		<div id="banner">
+			<img src="http://i.imgur.com/1ikiqUj.jpg?1"/>
+		</div>
+		<div id ="columns">
+			<div class="row, clearfix">
+				<div class="col-sm-3">
+					<ul>
+						<li class="clearfix"><%= link_to("Home", root_path) %></li>
+						<li class="clearfix"><%= link_to("Login", root_path) %></li>
+					</ul>
+				</div>
+				<div class="col-sm-9">
+					<%= yield %>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<p>Copyright © 2015 BarneyShop All right reserved</p>
+		</footer>
+  	</div>
+  </body>
+</html>

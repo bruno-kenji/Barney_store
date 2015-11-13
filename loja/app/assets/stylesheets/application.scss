@@ -8,9 +8,62 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require_tree .
+ *= require_self
  */
 
-/* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-*/
-@import "bootstrap-sprockets";
-@import "bootstrap";
+.centered_item {
+	text-align: center;
+}
+
+#banner {
+	text-align: center;
+	padding: 10px;
+	border-bottom: 2px solid #8A2BE2;
+	img { text-align: center;
+		  margin: 0 auto;
+	}
+}
+#columns {
+	background: #DDA0DD;
+}
+.row {
+	float: left;
+}
+
+ul { margin-top: 0;
+	 padding-top: 15px;
+	 padding-left: 5px;
+	 padding-right: 30px;
+	 padding-bottom: 15px;
+	 padding: 0;
+	 display: inline-block;
+}
+li {
+	list-style: none;
+	padding-left: 1em;
+	border-left: 2px solid green;
+	line-height: 30px;
+	padding-right: 3em;
+	padding-top: 5px;
+	margin-left: 10px;
+	a {
+		text-decoration: none;
+		font-weight: bold;
+		color: #2F4F4F;
+	}
+	a:hover { color: #87CEEB; }
+}
+
+footer {
+	background: #2F4F4F;
+	color: #fff;
+	text-align: center;
+	padding: 5px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
