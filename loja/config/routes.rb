@@ -1,9 +1,9 @@
 Loja::Application.routes.draw do
-  get "sectors/index"
+  resources :sectors
   resources :operators
 
   get "store/index"
   resources :products
   
-  root 'test#index'
+  root 'store#index'
 end

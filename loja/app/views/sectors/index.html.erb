@@ -1,0 +1,10 @@
+<h1>Listing sectors</h1>
+
+<div class="redirect_button">
+	<%= link_to 'New', new_sector_path %>
+</div>
+
+<table>
+	<% @sectors.each do |sector| %>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td class=""

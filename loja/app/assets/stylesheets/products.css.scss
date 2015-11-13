@@ -2,9 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.redirect_link {
-	margin-left: 10px;
-	margin-bottom: 15px;
+.products {
+	table {
+		border-collapse: collapse;
+		tr td {
+			padding: 5px;
+			vertical-align: top;
+		}
+	}
+	.list_image {
+		max-width: 20em;
+		max-height: 14em;
+	}
+	.list_description {
+		width: 60%;
+	}
+}
+
+.redirect_button {
+	margin-left: 17px;
+	margin-bottom: 30px;
 	a {
 		text-decoration: none;
 		color: #8B008B;
@@ -19,4 +36,7 @@
 		color: #00FF7F;
 		background: #8B008B;
 	}
-} 
+	a:active {
+		border: 3px solid green;
+	}
+}

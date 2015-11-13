@@ -55,6 +55,21 @@ li {
 	a:hover { color: #87CEEB; }
 }
 
+.list_actions {
+	a {
+		text-decoration: none;
+		font-weight: bold;
+		color: #2F4F4F;
+	}
+	a:hover {
+		font-weight: bolder;
+		text-decoration: underline;
+	}
+	a:active {
+		color: red;
+	}
+}
+
 footer {
 	background: #2F4F4F;
 	color: #fff;
