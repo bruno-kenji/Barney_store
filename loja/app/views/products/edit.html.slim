@@ -1,2 +1,8 @@
-h1 Products#edit
-p Find me in app/views/products/edit.html.slim
+h1 Edit Product
+
+= render 'form'
+br
+br
+
+.redirect_button
+	=link_to 'Back', products_path

@@ -11,12 +11,16 @@
  *= require_tree .
  *= require_self
  */
+* {
+	letter-spacing: 0.7px;
+	line-height: 22px;
+}
 
 .centered_item {
 	text-align: center;
 }
 
-#banner {
+.banner {
 	text-align: center;
 	padding: 10px;
 	border-bottom: 2px solid #8A2BE2;
@@ -24,13 +28,38 @@
 		  margin: 0 auto;
 	}
 }
-#columns {
+.nav {
 	background: #DDA0DD;
+	font-size: 15px;
+	text-transform: uppercase;
 }
 .row {
 	float: left;
 }
 
+
+#categories {
+	background: DarkMagenta;
+	color: SpringGreen;
+	text-align: center;
+	padding: 0.5px 0.5px;
+	font-size: 11px;
+	text-transform: uppercase;
+	&:hover { color: yellow; cursor: pointer; }
+	&:active { background: #b300b2; }
+}
+#categories_expanded {
+	background: SpringGreen;
+	color: DarkMagenta;
+	line-height: 30px;
+	display: none;
+	li { display: inline; }
+	a:hover { color: white; }
+}
+.container {
+	background: #E5FEE5;
+	padding-top: 20px;
+}
 ul { margin-top: 0;
 	 padding-top: 15px;
 	 padding-left: 5px;
@@ -70,6 +99,15 @@ li {
 	}
 }
 
+.error {
+	h2 {
+		color: red;
+	}
+	font-size: small;
+	background: #fff;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
 footer {
 	background: #2F4F4F;
 	color: #fff;

@@ -8,10 +8,10 @@
   </head>
 
 	<body class="<%= controller.controller_name %>">
-		<div id="banner">
+		<div class="banner">
 			<img src="http://i.imgur.com/1ikiqUj.jpg?1"/>
 		</div>
-		<div id ="columns">
+		<div class ="nav">
 			<div class="row, clearfix">
 				<div class="col-sm-3">
 					<ul>
@@ -19,11 +19,26 @@
 						<li class="clearfix"><%= link_to("Login", root_path) %></li>
 					</ul>
 				</div>
+			</div>
+		</div>
+		<div id="categories">
+			<h2>Categories</h2>
+		</div>
+		<div id="categories_expanded">
+			<ul>
+				<li>Category</li>
+				<li>Category</li>
+				<li>Category</li>
+			</ul>
+		</div>
+		<div class="container">
+			<div class="row, clearfix">
 				<div class="col-sm-9">
 					<%= yield %>
 				</div>
 			</div>
 		</div>
+	
 		<footer>
 			<p>Copyright © 2015 BarneyShop All right reserved</p>
 		</footer>

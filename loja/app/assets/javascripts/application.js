@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+	$("#categories").click(function() {
+		$("#categories_expanded").slideToggle("slow");
+	});
+});

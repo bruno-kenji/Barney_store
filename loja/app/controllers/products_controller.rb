@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -11,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -47,4 +48,13 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
+    def product_params
+      params.require(:product).permit(:title, :description, :image_url, :price)
+    end
 end
