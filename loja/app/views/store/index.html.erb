@@ -1,9 +1,5 @@
 <h1 class="centered_item">Listing Products</h1>
 
-<div class="redirect_button">
-  <%= link_to 'New', new_product_path %>
-</div>
-
 <table>
   <% @products.each do |product| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
@@ -13,11 +9,9 @@
       <td class="list_description">
         <dl>
           <dt><strong><%= product.title.titleize %></strong></dt>
-          <dt><%= number_to_currency(product.price) %></dt>
+          <dt><%= number_to_currency(product.price) %></dt><br/><br/>
+          <span class="list_actions"><%= link_to 'Details', product %></span>
         </dl>
-      </td>
-      <td class="list_actions"><br>
-        <%= link_to 'Details', product %><br/>
       </td>
     </tr>
   <% end %>

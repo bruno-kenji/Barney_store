@@ -1,0 +1,27 @@
+<h1 class="centered_item">Listing Categories</h1>
+
+<div class="list_actions centered_item">
+  <h2><%= link_to '| New Category |', new_category_path %></h2>
+</div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td><%= category.id %></td>
+      <td><%= category.title.titleize %></td>
+      <td><%= category.created_at %></td>
+      <td><%= category.updated_at %></td>
+      <td class="list_actions">
+        <%= link_to 'Edit', edit_category_path(category) %> |
+        <%= link_to 'Delete', category_path(category), method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

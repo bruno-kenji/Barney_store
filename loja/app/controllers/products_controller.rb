@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
+    set_product
   end
 
   def new
@@ -12,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    set_product
   end
 
   def create
@@ -20,7 +21,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to products_url, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -30,6 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    set_product
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -42,9 +44,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    set_product
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Product was successfully deleted.' }
       format.json { head :no_content }
     end
   end

@@ -1,3 +1,14 @@
 // Place all the styles related to the store controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list_image {
+	max-width: 20em;
+	max-height: 13em;
+	padding-top: 10px;
+}
+.list_description {
+	padding-left: 15px;
+	width: 45%;
+	font-size: 18px;
+}

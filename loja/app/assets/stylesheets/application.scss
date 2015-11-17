@@ -16,6 +16,15 @@
 	line-height: 22px;
 }
 
+#notice {
+	color: #000 !important;
+	border: 1.5px solid green;
+	padding: 1em;
+	margin-bottom: 2em;
+	background-color: #f0f0f0;
+	font: 500 smaller sans-serif;
+}
+
 .centered_item {
 	text-align: center;
 }
@@ -37,7 +46,6 @@
 	float: left;
 }
 
-
 #categories {
 	background: DarkMagenta;
 	color: SpringGreen;
@@ -56,6 +64,7 @@
 	li { display: inline; }
 	a:hover { color: white; }
 }
+
 .container {
 	background: #E5FEE5;
 	padding-top: 20px;

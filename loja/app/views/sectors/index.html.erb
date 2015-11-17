@@ -1,10 +1,27 @@
-<h1>Listing sectors</h1>
+<h1 class="centered_item">Listing Sectors</h1>
 
-<div class="redirect_button">
-	<%= link_to 'New', new_sector_path %>
+<div class="list_actions centered_item">
+  <h2><%= link_to '| New Sector |', new_sector_path %></h2>
 </div>
 
 <table>
-	<% @sectors.each do |sector| %>
-		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-			<td class=""
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  <% @sectors.each do |sector| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td><%= sector.id %></td>
+      <td><%= sector.title.titleize %></td>
+      <td><%= sector.created_at %></td>
+      <td><%= sector.updated_at %></td>
+      <td class="list_actions">
+        <%= link_to 'Edit', edit_sector_path(sector) %> |
+        <%= link_to 'Delete', sector, method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

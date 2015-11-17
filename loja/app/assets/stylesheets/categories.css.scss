@@ -1,8 +1,8 @@
-// Place all the styles related to the products controller here.
+// Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.products {
+.categories {
 	table {
 		border-collapse: collapse;
 		margin: 0 auto;
@@ -29,27 +29,5 @@
 	}
 	.list_description {
 		width: 50%;
-	}
-}
-
-.redirect_button {
-	margin-left: 5px;
-	margin-bottom: 30px;
-	a {
-		text-decoration: none;
-		color: #8B008B;
-		font-weight: bold;
-		padding: 10px 5px;
-		background: #00FF7F;
-		border: 2px solid green;
-		border-radius: 25px;
-	}
-	a:hover {
-		text-decoration: none;
-		color: #00FF7F;
-		background: #8B008B;
-	}
-	a:active {
-		border: 3px solid green;
 	}
 }
