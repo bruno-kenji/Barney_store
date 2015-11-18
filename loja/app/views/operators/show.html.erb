@@ -1,0 +1,32 @@
+<div id="show">
+	<p>
+		<strong>ID:</strong>
+		<%= @operator.id %>
+	</p>
+
+	<p>
+	  <strong>Name:</strong>
+	  <%= @operator.name.titleize %>
+	</p>
+
+	<p>
+	  <strong>Email:</strong>
+	  <%= @operator.email %>
+	</p>
+
+	<p>
+		<strong>Created at:</strong>
+		<%= @operator.created_at %>
+	</p>
+
+	<p>
+		<strong>Updated at:</strong>
+		<%= @operator.updated_at %>
+	</p>
+
+
+	<div class="redirect_button"><br>
+	  <%= link_to 'Edit', edit_operator_path(@operator) %> |
+	  <%= link_to 'Back', operators_path %>
+	</div>
+</div>

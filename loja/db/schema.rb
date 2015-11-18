@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117204737) do
+ActiveRecord::Schema.define(version: 20151118184002) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20151117204737) do
     t.integer "product_id"
     t.integer "category_id"
   end
+
+  create_table "operators", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+  end
+
+  add_index "operators", ["email"], name: "index_operators_on_email", unique: true, using: :btree
 
   create_table "products", force: true do |t|
     t.string   "title"

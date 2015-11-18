@@ -6,5 +6,5 @@ class Category < ActiveRecord::Base
     def self.latest
         Category.order(:updated_at).last
     end
-
+    
 end

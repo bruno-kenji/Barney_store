@@ -16,7 +16,10 @@
 //= require_tree .
 
 $(document).ready(function() {
-	$("#categories").click(function() {
-		$("#categories_expanded").slideToggle("slow");
+	$("#js-categories").click(function() {
+		$("#js-categories_expanded").slideToggle("slow");
+	});
+	$("#js-menu").click(function() {
+		$("#js-menu_expanded").slideToggle("slow");
 	});
 });

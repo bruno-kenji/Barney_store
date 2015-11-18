@@ -1,4 +1,5 @@
 class Sector < ActiveRecord::Base
+  has_many :operators, dependent: :destroy
   validates :title, presence: true
   validates :title, uniqueness: true
 

@@ -4,6 +4,7 @@ class SectorsController < ApplicationController
   end
 
   def show
+    set_sector
   end
 
   def new
@@ -11,7 +12,7 @@ class SectorsController < ApplicationController
   end
 
   def edit
-
+    set_sector
   end
 
   def create
@@ -29,9 +30,10 @@ class SectorsController < ApplicationController
   end
 
   def update
+    set_sector
     respond_to do |format|
       if @sector.update(sector_params)
-        format.html { redirect_to @sector, notice: 'Sector was successfully updated.' }
+        format.html { redirect_to sectors_url, notice: 'Sector was successfully updated.' }
         format.json { render :show, status: :ok, location: @sector }
       else
         format.html { render :edit }
@@ -41,10 +43,20 @@ class SectorsController < ApplicationController
   end
 
   def destroy
+    set_sector
     @sector.destroy
     respond_to do |format|
       format.html { redirect_to sectors_url, notice: 'Sector was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def set_sector
+    @sector = Sector.find(params[:id])
+  end
+
+  def sector_params
+    params.require(:sector).permit(:title)
   end
 end

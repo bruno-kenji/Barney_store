@@ -1,0 +1,33 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1 class="centered_item">Listing Operators</h1>
+
+<div class="list_actions centered_item">
+  <h2><%= link_to '| New Operator |', new_operator_path %></h2>
+</div>
+
+<table class="item_list">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  <% @operators.each do |operator| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td><%= operator.id %></td>
+      <td><%= operator.name.titleize %></td>
+      <td><%= operator.email %></td>
+      <td><%= operator.created_at %></td>
+      <td><%= operator.updated_at %></td>
+      <td class="list_actions">
+        <%= link_to 'Edit', edit_operator_path(operator) %> |
+        <%= link_to 'Delete', operator_path(operator), method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
