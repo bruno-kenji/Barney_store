@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
   end
   
   def create
-    operator = Operator.find_by(email: params[:email])
-    if operator and operator.authenticate(params[:password])
+    operator = Operator.find_by(email: params[:session][:email].downcase)
+    if operator && operator.authenticate(params[:session][:password])
         session[:operator_id] = operator.id
-        redirect_to store_url
+        redirect_to admin_index_url
     else
         redirect_to login_url, alert: "Invalid operator/password combination"
     end
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:operator_id] = nil
-    redirect_to store_url, notice: "Logged out"
+    redirect_to store_index_url, notice: "Logged out"
   end
 end

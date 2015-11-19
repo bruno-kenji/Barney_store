@@ -17,30 +17,39 @@
 				<div class="col-sm-3">
 					<ul>
 						<li class="clearfix"><%= link_to("Home", root_path) %></li>
-						<li class="clearfix"><%= link_to("Login", login_url) %></li>
+						<% if session[:operator_id] %>
+							<li class="clearfix"><%= link_to("Logout", logout_path,
+													 method: :delete) %></li>
+						<% else %>
+							<li class="clearfix"><%= link_to("Login", login_url) %></li>
+						<% end %>
 					</ul>
-					<div id="js-menu">
-						<h2>Operator Menu</h2>
-					</div>
-					<div id="js-menu_expanded">
-						<ul>
-							<li class="clearfix"><%= link_to("Products", products_path) %></li>
-							<li class="clearfix"><%= link_to("Categories", categories_path) %></li>
-							<li class="clearfix"><%= link_to("Sectors", sectors_path) %></li>
-							<li class="clearfix"><%= link_to("Operators", operators_path) %></li>
-						</ul>
-					</div>
+
+					<% if session[:operator_id] %>
+						<div id="js-menu">
+							<h2>Admin Menu</h2>
+							<img id="js-menu_icon" src="http://i.imgur.com/4Kav6g5.png?1">
+						</div>
+						<div id="js-menu_expanded">
+							<ul>
+								<li class="clearfix"><%= link_to("Products", products_path) %></li>
+								<li class="clearfix"><%= link_to("Categories", categories_path) %></li>
+								<li class="clearfix"><%= link_to("Sectors", sectors_path) %></li>
+								<li class="clearfix"><%= link_to("Operators", operators_path) %></li>
+							</ul>
+						</div>
+					<% end %>
+
 				</div>
 			</div>
 		</div>
 		<div id="js-categories">
 			<h2>Categories</h2>
+			<img id="js-categories_icon" src="http://i.imgur.com/4Kav6g5.png?1">
 		</div>
 		<div id="js-categories_expanded">
 			<ul>
-				<li>Category</li>
-				<li>Category</li>
-				<li>Category</li>
+				
 			</ul>
 		</div>
 		<div class="container">

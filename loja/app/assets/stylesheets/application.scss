@@ -14,6 +14,7 @@
 * {
 	letter-spacing: 0.7px;
 	line-height: 22px;
+	font-family: sans-serif;
 }
 
 #notice {
@@ -22,7 +23,7 @@
 	padding: 1em;
 	margin-bottom: 2em;
 	background-color: #f0f0f0;
-	font: 500 smaller sans-serif;
+	font: 500 smaller;
 }
 
 .centered_item {
@@ -33,10 +34,19 @@
 	text-align: center;
 	padding: 10px;
 	border-bottom: 2px solid #8A2BE2;
+	background: #f2f2f2;
 	img { text-align: center;
 		  margin: 0 auto;
 	}
 }
+
+.jumbotron {
+	text-align: center;
+	font-family: Helvetica;
+	font-size: 18px;
+	border-bottom: 2px solid #8A2BE2;
+}
+
 .nav {
 	background: #DDA0DD;
 	font-size: 15px;
@@ -50,11 +60,19 @@
 	background: #1c1c4a;
 	color: #fff;
 	text-align: center;
-	padding: 0.5px 0.5px;
+	padding-top: 0.5px;
+	padding-bottom: 0.5px;
 	font-size: 11px;
 	text-transform: uppercase;
 	&:hover { color: yellow; cursor: pointer; }
 	&:active { background: #2a2a6f; }
+	#js-menu_icon {
+		height: 30px;
+		width: 30px;
+		display: block;
+		margin: 0 auto;
+		margin-top: -20px;
+	}
 }
 #js-menu_expanded {
 	background: #DDA0DD;
@@ -67,11 +85,18 @@
 	background: DarkMagenta;
 	color: SpringGreen;
 	text-align: center;
-	padding: 0.5px 0.5px;
+	padding-top: 0.5px;
 	font-size: 11px;
 	text-transform: uppercase;
 	&:hover { color: yellow; cursor: pointer; }
 	&:active { background: #b300b2; }
+	#js-categories_icon {
+		height: 30px;
+		width: 30px;
+		display: block;
+		margin: 0 auto;
+		margin-top: -20px;
+	}
 }
 #js-categories_expanded {
 	background: #99ff99;
@@ -85,6 +110,10 @@
 .container {
 	background: #E5FEE5;
 	padding-top: 20px;
+}
+#product_box {
+	display: inline;
+	float: left;
 }
 ul { margin-top: 0;
 	 padding-top: 15px;
@@ -125,9 +154,47 @@ li {
 	}
 }
 
+.field {
+	margin-bottom: 10px;
+}
+form {
+	fieldset h3 {
+		color: #1c1c4a;
+	}
+}
+
 .actions {
+	margin-top: 30px;
 	input {
-		.myButton {
+		-webkit-border-radius: 16;
+		-moz-border-radius: 16;
+		border-radius: 18px;
+		font-family: Arial;
+		color: #141314;
+		font-size: 14px;
+		background: #dfe7ed;
+		padding: 5px 10px 5px 10px;
+		border: solid #131314 1px;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	input:hover {
+		background: #8ad2ff;
+		background-image: -webkit-linear-gradient(top, #8ad2ff, #74b4de);
+		background-image: -moz-linear-gradient(top, #8ad2ff, #74b4de);
+		background-image: -ms-linear-gradient(top, #8ad2ff, #74b4de);
+		background-image: -o-linear-gradient(top, #8ad2ff, #74b4de);
+		background-image: linear-gradient(to bottom, #8ad2ff, #74b4de);
+		text-decoration: none;
+	}
+	input:active {
+		position: relative;
+		top: 1px;
+	}
+}
+
+#login_action {
+	input {
 			-moz-box-shadow: 0px 10px 14px -7px #276873;
 			-webkit-box-shadow: 0px 10px 14px -7px #276873;
 			box-shadow: 0px 10px 14px -7px #276873;
@@ -146,13 +213,16 @@ li {
 			cursor:pointer;
 			color:#ffffff;
 			font-family:Arial;
-			font-size:20px;
+			font-size:16px;
 			font-weight:bold;
-			padding:13px 32px;
+			padding:5px 20px;
 			text-decoration:none;
 			text-shadow:0px 1px 0px #3d768a;
+			margin-top: 5px;
+			margin-bottom: 10px;
+			margin-left: 165px;
 		}
-		.myButton:hover {
+		input:hover {
 			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
 			background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
 			background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
@@ -162,12 +232,10 @@ li {
 			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
 			background-color:#408c99;
 		}
-		.myButton:active {
+		input:active {
 			position:relative;
 			top:1px;
 		}
-
-	}
 }
 
 .item_list {
@@ -196,6 +264,28 @@ li {
 	}
 .list_description {
 		width: 50%;
+}
+
+.redirect_button {
+	margin-left: 5px;
+	margin-bottom: 30px;
+	a {
+		text-decoration: none;
+		color: #8B008B;
+		font-weight: bold;
+		padding: 10px 5px;
+		background: #00FF7F;
+		border: 2px solid green;
+		border-radius: 25px;
+	}
+	a:hover {
+		text-decoration: none;
+		color: #00FF7F;
+		background: #8B008B;
+	}
+	a:active {
+		border: 3px solid green;
+	}
 }
 
 .error {

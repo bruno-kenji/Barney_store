@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-
+  skip_before_action :authorize, only:[:show]
+  
   def index
     @products = Product.all
   end

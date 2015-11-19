@@ -31,25 +31,3 @@
 		width: 50%;
 	}
 }
-
-.redirect_button {
-	margin-left: 5px;
-	margin-bottom: 30px;
-	a {
-		text-decoration: none;
-		color: #8B008B;
-		font-weight: bold;
-		padding: 10px 5px;
-		background: #00FF7F;
-		border: 2px solid green;
-		border-radius: 25px;
-	}
-	a:hover {
-		text-decoration: none;
-		color: #00FF7F;
-		background: #8B008B;
-	}
-	a:active {
-		border: 3px solid green;
-	}
-}

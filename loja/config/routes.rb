@@ -13,7 +13,8 @@ Loja::Application.routes.draw do
   resources :categories
   resources :products
 
-  resources :store, only: [:index, :show]
+  resources :store, only:[:index]
+  resources :admin, only:[:index]
   
   root 'store#index'
 end

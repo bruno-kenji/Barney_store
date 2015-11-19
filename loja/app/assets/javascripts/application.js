@@ -16,10 +16,22 @@
 //= require_tree .
 
 $(document).ready(function() {
+	var i=180;
+	var j=180;
 	$("#js-categories").click(function() {
 		$("#js-categories_expanded").slideToggle("slow");
+		$("#js-categories_icon").css({
+			WebkitTransform: 'rotateX(' + i + 'deg)',
+			WebkitTransition: '0.5s'
+		});
+		i-=180;
 	});
 	$("#js-menu").click(function() {
 		$("#js-menu_expanded").slideToggle("slow");
+		$("#js-menu_icon").css({
+			WebkitTransform: 'rotateX(' + j + 'deg)',
+			WebkitTransition: '0.5s'
+		});
+		j+=180;
 	});
 });

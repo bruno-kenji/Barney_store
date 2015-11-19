@@ -1,25 +1,26 @@
 <div id="show">
 	<p>
-	<strong>ID:</strong>
+		<strong>ID:</strong>
 		<%= @product.id %>
 	</p>
+
 	<p>
-	  <strong>Title:</strong>
-	  <%= @product.title.titleize %>
+		<strong>Title:</strong>
+		<%= @product.title.titleize %>
 	</p>
 
 	<p>
-	  <strong>Description:</strong>
-	  <%= @product.description %>
+		<strong>Description:</strong>
+		<%= @product.description %>
 	</p>
 
 	<p>
-	  <%= image_tag(@product.image_url, class: 'list_image') %>
+		<%= image_tag(@product.image_url, class: 'list_image') %>
 	</p>
 
 	<p>
-	  <strong>Price:</strong>
-	  <%= number_to_currency(@product.price) %>
+		<strong>Price:</strong>
+		<%= number_to_currency(@product.price) %>
 	</p>
 
 
@@ -33,9 +34,14 @@
 		<%= @product.updated_at %>
 	</p>
 
-
-	<div class="redirect_button"><br>
-	  <%= link_to 'Edit', edit_product_path(@product) %> |
-	  <%= link_to 'Back', products_path %>
-	</div>
+	<% if session[:operator_id] %>
+		<div class="redirect_button"><br>
+			<%= link_to 'Edit', edit_product_path(@product) %> |
+			<%= link_to 'Back', products_path %>
+		</div>
+	<% else %>
+		<div class="redirect_button"><br>
+			<%= link_to 'Back', root_url %>
+		</div>
+	<% end %>
 </div>
