@@ -1,24 +1,27 @@
 class ProductsController < ApplicationController
   skip_before_action :authorize, only:[:show]
+  before_action :set_product, :set_category, only:[:show, :edit, :update, :destroy]
   
   def index
     @products = Product.all
   end
 
   def show
-    set_product
+    @product = Product.includes(:categories).find(params[:id])
   end
 
   def new
     @product = Product.new
+    @categories = Category.all.map { |c| [ c.title, c.id ] }
   end
 
   def edit
-    set_product
+    @categories = Category.all.map{ |c| c.title }
   end
 
   def create
     @product = Product.new(product_params)
+    @product.categories_id = params[:categories_id]
 
     respond_to do |format|
       if @product.save
@@ -32,7 +35,8 @@ class ProductsController < ApplicationController
   end
 
   def update
-    set_product
+    @product.categories_id = params[:categories_id]
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -45,7 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    set_product
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully deleted.' }
@@ -58,7 +61,15 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
+    def set_category
+      @category = Category.find(params[:id])
+    end
+
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price, :category_id)
+    end
+
+    def category_params
+      params.require(:category).permit(:title, :product_id)
     end
 end

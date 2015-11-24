@@ -1,24 +1,25 @@
-<div id="show">
-	<p>
-	  <strong>Title:</strong>
-	  <%= @product.title.titleize %>
-	</p>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
 
-	<p>
-	  <strong>Description:</strong>
-	  <%= @product.description %>
-	</p>
+<h1 class="centered_item">Listing Products</h1>
+<h3 class="centered_item">Showing only: <%= @category.title.titleize %></h3>
 
-	<p>
-	  <%= image_tag(@product.image_url, class: 'list_image') %>
-	</p>
-
-	<p>
-	  <strong>Price:</strong>
-	  <%= number_to_currency(@product.price) %>
-	</p>
-
-	<div class="redirect_button">
-	  <%= link_to 'Back', store_index_path %>
-	</div>
-</div>
+<table>
+  <% @category.products.each do |product| %>
+    <div id="product_box">
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td>
+          <%= link_to image_tag(product.image_url, class: 'list_image'), product %>
+        </td>
+        <td class="list_description">
+          <dl>
+           <dt><strong><span class='list_actions'><%= link_to product.title.titleize, product %></span></strong></dt><br>
+            <dt><%= number_to_currency(product.price) %></dt><br/><br/>
+          </dl>
+        </td>
+      </tr>
+    </div>
+  <% end %>
+</table>
+<br>

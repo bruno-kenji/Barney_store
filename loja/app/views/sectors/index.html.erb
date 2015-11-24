@@ -22,6 +22,7 @@
       <td><%= sector.created_at %></td>
       <td><%= sector.updated_at %></td>
       <td class="list_actions">
+        <%= link_to 'Show', sector %> |
         <%= link_to 'Edit', edit_sector_path(sector) %> |
         <%= link_to 'Delete', sector, method: :delete,
                 data: { confirm: 'Are you sure?' } %>

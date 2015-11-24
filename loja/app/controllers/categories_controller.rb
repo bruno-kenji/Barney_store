@@ -1,18 +1,23 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authorize, only:[:show]
+  
   def index
     @categories = Category.all
   end
 
   def show
     set_category
+    @products = Product.all
   end
 
   def new
     @category = Category.new
+    @products = Product.all
   end
 
   def edit
     set_category
+    @products = Product.all.map { |p| p.title }
   end
 
   def create
@@ -56,7 +61,15 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def category_params
     params.require(:category).permit(:title, :product_id)
+  end
+
+  def product_params
+    params.require(:product).permit(:title, :description, :image_url, :price, :category_id)
   end
 end

@@ -13,6 +13,7 @@ class SectorsController < ApplicationController
 
   def edit
     set_sector
+    @operators = Operator.all.map { |o| o.name }
   end
 
   def create

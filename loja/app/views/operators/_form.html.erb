@@ -29,9 +29,8 @@
     <%= f.password_field :password_confirmation %><br>
   </div>
   <div class="select"><br>
-    <%= f.label :sector %><br>
-    <%= f.select :sector_id do %>
-      <% @sectors.each do |sector| %>
+    <%= f.collection_select(:sector, Sector.all, :id, :title, :prompt => "Choose Sector") %>
+  </div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>

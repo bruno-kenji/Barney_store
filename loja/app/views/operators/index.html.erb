@@ -24,6 +24,7 @@
       <td><%= operator.created_at %></td>
       <td><%= operator.updated_at %></td>
       <td class="list_actions">
+        <%= link_to 'Show', operator %> |
         <%= link_to 'Edit', edit_operator_path(operator) %> |
         <%= link_to 'Delete', operator_path(operator), method: :delete,
                 data: { confirm: 'Are you sure?' } %>

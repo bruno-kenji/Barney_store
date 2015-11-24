@@ -3,9 +3,10 @@
 <% end %>
 
 <h1 class="centered_item">Listing Products</h1>
+<h3 class="centered_item">Showing only: <%= @category.title.titleize %></h3>
 
 <table>
-  <% @products.each do |product| %>
+  <% @category.products.each do |product| %>
     <div id="product_box">
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td>
@@ -13,7 +14,7 @@
         </td>
         <td class="list_description">
           <dl>
-            <dt><strong><span class='list_actions'><%= link_to product.title.titleize, product %></span></strong></dt><br>
+           <dt><strong><span class='list_actions'><%= link_to product.title.titleize, product %></span></strong></dt><br>
             <dt><%= number_to_currency(product.price) %></dt><br/><br/>
           </dl>
         </td>
@@ -22,3 +23,4 @@
   <% end %>
 </table>
 <br>
+

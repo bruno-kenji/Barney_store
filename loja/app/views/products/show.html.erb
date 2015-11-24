@@ -23,22 +23,29 @@
 		<%= number_to_currency(@product.price) %>
 	</p>
 
-
 	<p>
-		<strong>Created at:</strong>
-		<%= @product.created_at %>
-	</p>
-
-	<p>
-		<strong>Updated at:</strong>
-		<%= @product.updated_at %>
+		<strong>Categories:</strong>
+		<% @product.categories.each do |category| %>
+			<span class='list_actions'><%= link_to category.title, category_path %></span>&nbsp;
+		<% end %>		
 	</p>
 
 	<% if session[:operator_id] %>
+		<p>
+			<strong>Created at:</strong>
+			<%= @product.created_at %>
+		</p>
+
+		<p>
+			<strong>Updated at:</strong>
+			<%= @product.updated_at %>
+		</p>
+
 		<div class="redirect_button"><br>
 			<%= link_to 'Edit', edit_product_path(@product) %> |
 			<%= link_to 'Back', products_path %>
 		</div>
+
 	<% else %>
 		<div class="redirect_button"><br>
 			<%= link_to 'Back', root_url %>

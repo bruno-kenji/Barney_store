@@ -49,7 +49,9 @@
 		</div>
 		<div id="js-categories_expanded">
 			<ul>
-				
+				<% Category.all.each do |category| %>
+					<li><%= link_to category.title.titleize, category %></li>
+				<% end %>
 			</ul>
 		</div>
 		<div class="container">

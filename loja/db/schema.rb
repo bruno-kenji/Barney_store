@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118184002) do
+ActiveRecord::Schema.define(version: 20151123195041) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "products_id"
   end
 
   create_table "categories_products", id: false, force: true do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151118184002) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.integer  "sector_id"
   end
 
   add_index "operators", ["email"], name: "index_operators_on_email", unique: true, using: :btree
@@ -38,15 +40,17 @@ ActiveRecord::Schema.define(version: 20151118184002) do
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",       precision: 6, scale: 2
+    t.decimal  "price",         precision: 6, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "categories_id"
   end
 
   create_table "sectors", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "operators_id"
   end
 
 end

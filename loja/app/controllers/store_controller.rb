@@ -2,10 +2,11 @@ class StoreController < ApplicationController
   skip_before_action :authorize
   def index
     @products = Product.all
+    @categories = Category.all
   end
 
   def show
-    @product = Product.find(params[:id])
+    
   end
 
   private

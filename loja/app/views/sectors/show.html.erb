@@ -1,0 +1,33 @@
+<div id="show">
+	<p>
+		<strong>ID:</strong>
+		<%= @sector.id %>
+	</p>
+
+	<p>
+		<strong>Title:</strong>
+		<%= @sector.title.titleize %>
+	</p>
+
+	<p>
+		<strong>Operators:</strong>
+		<% @sector.operators.each do |operator| %>
+			<span class='list_actions'><%= link_to operator.title, operator %></span>&nbsp;
+		<% end %>		
+	</p>
+
+	<p>
+		<strong>Created at:</strong>
+		<%= @sector.created_at %>
+	</p>
+
+	<p>
+		<strong>Updated at:</strong>
+		<%= @sector.updated_at %>
+	</p>
+
+	<div class="redirect_button"><br>
+		<%= link_to 'Edit', edit_sector_path(@sector) %> |
+		<%= link_to 'Back', sectors_path %>
+	</div>
+</div>

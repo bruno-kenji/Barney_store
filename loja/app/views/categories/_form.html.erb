@@ -16,6 +16,12 @@
 		<%= f.label :title %><br>
 		<%= f.text_field :title %><br>
 	</div>
+  <div class="checkbox"><br>
+    <% @products.each do |product| %>
+      <%= check_box_tag product %>
+      <%= label_tag product.titleize %>&nbsp;&nbsp;
+    <% end %>
+  </div>
 	<div class="actions"><br>
 		<%= f.submit %>
 	</div>
