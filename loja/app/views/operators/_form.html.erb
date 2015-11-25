@@ -29,7 +29,7 @@
     <%= f.password_field :password_confirmation %><br>
   </div>
   <div class="select"><br>
-    <%= f.collection_select(:sector, Sector.all, :id, :title, :prompt => "Choose Sector") %>
+    <%= f.collection_select(:sector_id, Sector.all, :id, :title, :include_blank => "Choose Sector") %>
   </div>
 	<div class="actions">
 		<%= f.submit %>

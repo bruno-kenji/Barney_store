@@ -1,4 +1,5 @@
 class SectorsController < ApplicationController
+
   def index
   	@sectors = Sector.all
   end
@@ -9,6 +10,7 @@ class SectorsController < ApplicationController
 
   def new
     @sector = Sector.new
+    @operators = Operator.all.map { |o| o.name }
   end
 
   def edit
@@ -59,5 +61,13 @@ class SectorsController < ApplicationController
 
   def sector_params
     params.require(:sector).permit(:title)
+  end
+
+  def sort_column
+    Sector.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

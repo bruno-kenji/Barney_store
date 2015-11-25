@@ -13,6 +13,7 @@
     <th>ID</th>
     <th>Name</th>
     <th>Email</th>
+    <th>Sector</th>
     <th>Created at</th>
     <th>Updated at</th>
   </tr>
@@ -21,6 +22,7 @@
       <td><%= operator.id %></td>
       <td><%= operator.name.titleize %></td>
       <td><%= operator.email %></td>
+      <td><%= operator.sector.title.titleize %></td>
       <td><%= operator.created_at %></td>
       <td><%= operator.updated_at %></td>
       <td class="list_actions">

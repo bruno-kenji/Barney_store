@@ -34,4 +34,28 @@ $(document).ready(function() {
 		});
 		j+=180;
 	});
+/*
+	$(".js-sortable").click(function() {
+		var toggleClass = $(this).hasClass('asc') ? 'desc' : 'asc';
+		$('js-sortable').removeClass('asc').removeClass('desc');
+		$(this).addClass(toggleClass);
+
+		var colIndex = $(this).prevAll().length;
+		var tbody = $(this).closest("table").find("tbody");
+		var rows = tbody.find("tr");
+
+		rows.sort(function(a,b) {
+			var A = $(a).find("td").eq(colIndex).text();
+			var B = $(b).find("td").eq(colIndex).text();
+
+			if (!isNaN(A)) A = Number(A);
+			if (!isNaN(B)) B = Number(B);
+
+			return toggleClass == 'asc' ? A>B : B>A;
+		});
+		$.each(rows,function(index,ele) {
+			tbody.append(ele);
+		});
+	});
+*/
 });
