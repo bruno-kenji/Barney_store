@@ -17,8 +17,13 @@
 		<%= f.text_field :title %>
 	</div>
   <div class="checkbox"><br>
-    <%= f.collection_check_boxes :operators_id, Operator.all, :id, :name %>
+    <!-- <%= f.collection_check_boxes :operator_ids, Operator.all, :id, :name %> -->
+    <% for operator in Operator.find(:all) %>
+      <%= check_box_tag "sector[operator_ids][]", operator.id, @sector.operators.include?(operator) %>
+      <%= operator.name %>
+    <% end %>
   </div>
+
 	<div class="actions">
 		<%= f.submit %>
 	</div>

@@ -15,7 +15,6 @@ class SectorsController < ApplicationController
 
   def edit
     set_sector
-    @operators = Operator.all
     authorize_full_access
   end
 
@@ -36,7 +35,7 @@ class SectorsController < ApplicationController
   def update
     set_sector
     #Operator.where(id: params[:sector][:operators_id])
-
+    params[:sector][:operator_ids] ||= []
     respond_to do |format|
       if @sector.update(sector_params)
         format.html { redirect_to @sector, notice: 'Sector was successfully updated.' }
@@ -68,7 +67,7 @@ class SectorsController < ApplicationController
   end
 
   def sector_params
-    params.require(:sector).permit(:id, :title, :operators_id => [])
+    params.require(:sector).permit(:id, :title, :operator_ids)
   end
 
   def sort_column
