@@ -4,5 +4,6 @@ FactoryGirl.define do
     sequence(:email) { |n| "operator#{n}@email.teste".to_s}
     password 123321
     password_confirmation 123321
+    sector
   end
 end
