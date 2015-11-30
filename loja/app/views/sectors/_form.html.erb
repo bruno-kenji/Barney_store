@@ -1,4 +1,4 @@
-<%= form_for(@sector) do |f| %>
+<%= simple_form_for(@sector) do |f| %>
 
 	<% if @sector.errors.any? %>
     <div class="error">
@@ -18,10 +18,13 @@
 	</div>
   <div class="checkbox"><br>
     <!-- <%= f.collection_check_boxes :operator_ids, Operator.all, :id, :name %> -->
-    <% for operator in Operator.find(:all) %>
+
+    <!-- <% for operator in Operator.find(:all) %>
       <%= check_box_tag "sector[operator_ids][]", operator.id, @sector.operators.include?(operator) %>
       <%= operator.name %>
-    <% end %>
+    <% end %> -->
+
+    <%= f.association :operators, as: :check_boxes %>
   </div>
 
 	<div class="actions">
