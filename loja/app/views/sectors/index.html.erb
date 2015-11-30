@@ -12,16 +12,14 @@
   <tr>
     <th class="js-sortable">ID</th>
     <th class="js-sortable">Name</th>
-    <th>Created at</th>
-    <th>Updated at</th>
+    <th>Operators</th>
   </tr>
   <tbody>
   <% @sectors.each do |sector| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td><%= sector.id %></td>
       <td><%= sector.title.titleize %></td>
-      <td><%= sector.created_at %></td>
-      <td><%= sector.updated_at %></td>
+      <td><%= truncate(sector.operators.map { |o| o.name.titleize }.join(', '), length: 100) %></td>
       <td class="list_actions">
         <%= link_to 'Show', sector %> |
         <%= link_to 'Edit', edit_sector_path(sector) %> |

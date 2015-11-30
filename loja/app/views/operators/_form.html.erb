@@ -16,21 +16,30 @@
 		<%= f.label :name %><br>
 		<%= f.text_field :name %><br>
 	</div>
+
   <div class="field"><br>
     <%= f.label :email %><br>
     <%= f.text_field :email %><br>
   </div>
+
   <div class="field"><br>
     <%= f.label :password %><br>
     <%= f.password_field :password %><br>
   </div>
+
   <div class="field"><br>
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %><br>
   </div>
+
   <div class="select"><br>
-    <%= f.collection_select(:sector_id, Sector.all, :id, :title, :include_blank => "Choose Sector") %>
+    <% if logged_in.sector.id == 7 && logged_in.sector.title == 'Admin' %>
+      <%= f.collection_select(:sector_id, Sector.all, :id, :title, :include_blank => "Choose Sector") %>
+    <% else %>
+      <%= f.collection_select(:sector_id, Sector.where.not(title: 'Admin'), :id, :title, :include_blank => "Choose Sector") %>
+    <% end %>
   </div>
+
 	<div class="actions">
 		<%= f.submit %>
 	</div>

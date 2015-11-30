@@ -1,3 +1,7 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
 <div id="show">
 	<p>
 		<strong>ID:</strong>
@@ -11,9 +15,11 @@
 
 	<p>
 		<strong>Operators:</strong>
-		<% @sector.operators.each do |operator| %>
-			<span class='list_actions'><%= link_to operator.name.titleize, operator %></span>&nbsp;
-		<% end %>		
+		<% if @sector.operators %>
+			<% @sector.operators.each do |operator| %>
+				<span class='list_actions'><%= link_to operator.name.titleize, operator %></span>,&nbsp;
+			<% end %>
+		<% end %>
 	</p>
 
 	<p>

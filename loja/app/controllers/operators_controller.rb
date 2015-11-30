@@ -2,7 +2,6 @@ class OperatorsController < ApplicationController
   def index
     @operators = Operator.all
     @sectors = Sector.all
-    set_sector
   end
 
   def show
@@ -16,13 +15,12 @@ class OperatorsController < ApplicationController
 
   def edit
     set_operator
-    set_sector
+    authorize_full_access
   end
 
   def create
     @operator = Operator.new(operator_params)
-    set_sector
-    @sectors = Sector.all
+
     respond_to do |format|
       if @operator.save
         format.html { redirect_to @operator, notice: 'Operator was successfully created.' }
@@ -36,8 +34,7 @@ class OperatorsController < ApplicationController
 
   def update
     set_operator
-    set_sector
-    @sectors = Sector.all
+
     respond_to do |format|
       if @operator.update(operator_params)
         format.html { redirect_to @operator, notice: 'Operator was successfully updated.' }
@@ -50,12 +47,16 @@ class OperatorsController < ApplicationController
   end
 
   def destroy
-    set_operator
-    set_sector
-    @operator.destroy
-    respond_to do |format|
-      format.html { redirect_to operators_url, notice: 'Operator was successfully deleted.' }
-      format.json { head :no_content }
+    if logged_in.sector.id == 7 && logged_in.sector.title == 'Admin'
+      set_operator
+      @operator.destroy
+
+      respond_to do |format|
+        format.html { redirect_to operators_url, notice: 'Operator was successfully deleted.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to admin_index_url, alert: "Only operators who belong in the 'Admin' sector have access to this."
     end
   end
 
@@ -64,15 +65,11 @@ class OperatorsController < ApplicationController
     @operator = Operator.find(params[:id])
   end
 
-  def set_sector
-  end
-
   def operator_params
     params.require(:operator).permit(:id, :name, :email, :password, :password_confirmation, :sector_id)
   end
 
   def sector_params
-    params.require(:sector).permit(:id, :title, :operator_id)
+    params.require(:sector).permit(:id, :title, :operators_id)
   end
-
 end

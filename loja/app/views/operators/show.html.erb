@@ -1,5 +1,5 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
 <% end %>
 
 <div id="show">
@@ -21,7 +21,7 @@
 	<p>
 		<strong>Sector:</strong>
 		<% if @operator.sector %>
-		<span class='list_actions'><%= link_to @operator.sector.title.titleize, @operator.sector %></span>&nbsp;
+			<span class='list_actions'><%= link_to @operator.sector.title.titleize, @operator.sector %></span>&nbsp;
 		<% end %>
 	</p>
 

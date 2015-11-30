@@ -12,6 +12,7 @@
   <tr>
     <th>ID</th>
     <th>Name</th>
+    <th class="centered_th">Products</th>
     <th>Created at</th>
     <th>Updated at</th>
   </tr>
@@ -19,6 +20,7 @@
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td><%= category.id %></td>
       <td><%= category.title.titleize %></td>
+      <td><%= truncate(category.products.map { |c| c.title.titleize }.join(', '), length: 40) %></td>
       <td><%= category.created_at %></td>
       <td><%= category.updated_at %></td>
       <td class="list_actions">

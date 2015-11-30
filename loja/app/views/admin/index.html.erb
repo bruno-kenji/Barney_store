@@ -1,3 +1,7 @@
+<% if flash[:alert] %>
+	<p id="notice"><%= flash[:alert] %></p>
+<% end %>
+
 <% if session[:operator_id] %>
 	<div class="jumbotron"><br>
 		<img src="https://d30y9cdsu7xlg0.cloudfront.net/png/191878-200.png">

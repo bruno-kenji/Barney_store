@@ -1,0 +1,1 @@
+json.extract! @sector, :id, :title, :operators, :created_at, :updated_at

@@ -29,10 +29,7 @@
 		<%= f.text_field :price %>
 	</div>
 	<div class="checkbox"><br>
-		<% @categories.each do |category| %>
-			<%= check_box_tag category %>
-			<%= label_tag category.titleize %>&nbsp;&nbsp;
-		<% end %>
+		<%= f.collection_check_boxes :categories_id, Category.all, :id, :title %>
 	</div>
 	<div class="actions">
 		<%= f.submit %>

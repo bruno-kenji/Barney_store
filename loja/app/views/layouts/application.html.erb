@@ -20,6 +20,7 @@
 						<% if session[:operator_id] %>
 							<li class="clearfix"><%= link_to("Logout", logout_path,
 													 method: :delete) %></li>
+							<span>Logged as: "<%= Operator.find(session[:operator_id]).name %>"</span>
 						<% else %>
 							<li class="clearfix"><%= link_to("Login", login_url) %></li>
 						<% end %>

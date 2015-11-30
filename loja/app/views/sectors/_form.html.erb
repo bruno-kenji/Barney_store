@@ -17,13 +17,10 @@
 		<%= f.text_field :title %>
 	</div>
   <div class="checkbox"><br>
-    <% @operators.each do |operator| %>
-      <%= check_box_tag operator %>
-      <%= label_tag operator.titleize %>&nbsp;&nbsp;
-    <% end %>
+    <%= f.collection_check_boxes :operators_id, Operator.all, :id, :name %>
   </div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
-
+  
 <% end %>
