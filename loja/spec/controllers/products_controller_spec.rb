@@ -5,6 +5,26 @@ describe ProductsController, type: :controller do
         @product = FactoryGirl.create(:product)
     end
 
+    describe 'GET #index' do
+        context 'operator not logged in' do
+            it 'redirects to login path' do
+                expect(response.status).to eq 200
+                response = get :index, format: :json
+                expect(response).to redirect_to "/login"
+            end
+        end
+        context 'operator logged in' do
+            it 'renders the index view' do
+                operator = FactoryGirl.create(:operator)
+                session[:operator_id] = operator.id
+
+                expect(response.status).to eq 200
+                response = get :index, format: :json
+                expect(response).to render_template "index"
+            end
+        end
+    end
+    
     describe 'POST /products' do
         it 'creates a new product with the passed params' do
             product_attributes = {
@@ -41,8 +61,9 @@ describe ProductsController, type: :controller do
     describe 'DELETE /product/:id' do
         it 'deletes the product with the passed id' do
             product = Product.first
-
+            
             expect(response.status).to eq 200
+            expect(flash[:alert]).to eq("Please login to access admin content")
         end
     end
 end 
