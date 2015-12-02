@@ -50,7 +50,7 @@ describe SectorsController, type: :controller do
     describe 'DELETE /sector/:id' do
         it 'deletes the sector with the passed id' do
             subject = Sector.first
-            expect(controller).to receive(:authorize!).and_return(true)
+            #expect_any_instance_of(subject.class).to receive(:authorize).and_return(true)
             expect(response.status).to eq 200
             response = delete :destroy, id: subject.id
             expect(flash[:alert]).to eq("Please login to access admin content")

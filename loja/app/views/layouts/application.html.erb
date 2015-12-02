@@ -48,7 +48,7 @@
 			<h2>Categories</h2>
 			<img id="js-categories_icon" src="http://i.imgur.com/4Kav6g5.png?1">
 		</div>
-		<div id="js-categories_expanded">
+		<div id="js-categories_expanded" class="cpy-categories_expanded">
 			<ul>
 				<% Category.all.each do |category| %>
 					<li><%= link_to category.title.titleize, category %></li>

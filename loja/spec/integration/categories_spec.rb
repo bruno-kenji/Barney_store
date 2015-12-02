@@ -1,5 +1,21 @@
 require 'spec_helper'
 
+describe 'I can see the products within the given category' do
+    before :each do
+        FactoryGirl.create_list(:category, 3)
+    end
+    it 'lists the products' do
+        visit '/categories'
+        save_and_open_page
+        find('.cpy-categories_expanded').first(:link).click
+        @category.products.each do |product|
+            expect(page).to have_content(product.title)
+            expect(page).to have_content(product.price.to_s)
+        end
+    end
+end
+
+
 describe 'As an operator', type: :request do
     describe 'I can manage the categories' do
         context 'Having some categories' do
